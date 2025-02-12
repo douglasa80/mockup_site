@@ -1,0 +1,62 @@
+@font-face {
+  font-display: swap;
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Proxima Nova Bold"), local("Proxima-Nova-Bold"), url(../font/proxima_nova_bold-webfont.woff2) format("woff2"),
+    url(../font/proxima_nova_bold-webfont.woff) format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto Regular"), local("Roboto-Regular"), url(../font/roboto-regular-webfont.woff2) format("woff2"),
+    url(../font/roboto-regular-webfont.woff) format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Roboto Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url(../font/roboto-bold-webfont.woff2) format("woff2"), url(../font/roboto-bold-webfont.woff) format("woff");
+}
+
+body {
+  font: normal 1rem/1.2 "Proxima Nova", sans-serif;
+}
+
+.placeholder_terra {
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(90deg, #FF8000 42.54%, #FF6200 73.15%);
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+header {
+  background-color: #1f4876;
+  background-image: linear-gradient(135deg, #0287a0, #1f4876);
+  border-bottom: 3px solid #a56a04;
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+}
+
+.image-16-9 {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;
+}
+
+.h1, h1 {
+  font-size: calc(1.375rem + 1vw);
+  line-height: 1;
+}
+
+
+

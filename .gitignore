@@ -1,0 +1,7 @@
+_virtualenv/
+venvfdr/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+database.db

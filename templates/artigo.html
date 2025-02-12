@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ noticia.titulo }}</h2>
+<small>{{ noticia.data }}</small>
+<img src="{{ url_for('static', filename=noticia.imagem) }}" alt="{{ noticia.titulo }}" class="img-fluid w-100">
+<p>{{ noticia.conteudo }}</p>
+<a href="{{ url_for('home') }}">Voltar</a>
+{% endblock %}
