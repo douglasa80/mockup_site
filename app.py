@@ -1,15 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from models import db, Noticia  # Importa o banco de dados e o modelo
+from models import db, Noticia
 
 app = Flask(__name__)
 
-# Configuração do banco de dados
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
-# Rota da página inicial
 @app.route('/')
 def home():
     noticias = Noticia.query.all()
@@ -38,6 +36,29 @@ def adicionar_noticia():
         return redirect(url_for('home'))
 
     return render_template('adicionar.html')
+
+@app.route('/editar/<int:noticia_id>', methods=['GET', 'POST'])
+def editar_noticia(noticia_id):
+    noticia = Noticia.query.get_or_404(noticia_id)
+
+    if request.method == 'POST':
+        noticia.titulo = request.form['titulo']
+        noticia.data = request.form['data']
+        noticia.resumo = request.form['resumo']
+        noticia.conteudo = request.form['conteudo']
+        noticia.imagem = request.form['imagem']
+
+        db.session.commit()
+        return redirect(url_for('home'))
+
+    return render_template('editar.html', noticia=noticia)
+
+@app.route('/remover/<int:noticia_id>', methods=['POST'])
+def remover_noticia(noticia_id):
+    noticia = Noticia.query.get_or_404(noticia_id)
+    db.session.delete(noticia)
+    db.session.commit()
+    return redirect(url_for('home'))
 
 # Rota para exibir um artigo
 @app.route('/artigo/<int:noticia_id>')
