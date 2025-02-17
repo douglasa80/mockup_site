@@ -16,95 +16,14 @@
   </head>
   <body>
   
-    <div class="placeholder_terra">
-      <img width="80" height="23" src="https://www.terra.com.br/globalSTATIC/fe/zaz-mod-t360-icons/svg/logos/terra-horizontal-branco.svg" alt="Logo do Terra">
-    </div>
-
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Offcanvas navbar large">
-        <div class="container">
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo_fdr.svg') }}" width="120" height="50" class="img-fluid"></a>
-          <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <img src="{{ url_for('static', filename='images/youtube_menu.svg') }}" width="22" height="22" class="px-1 mx-1">
-            <img src="{{ url_for('static', filename='images/whatsapp_menu.svg') }}" width="22" height="22" class="px-1 mx-1">
-            <img src="{{ url_for('static', filename='images/facebook_menu.svg') }}" width="22" height="22" class="px-1 mx-1">
-          </div>
-        </div>
-      </nav>      
-    </header>
+    {% include 'includes/header.html' %}
 
     <main>
       {% block content %}{% endblock %}
     </main>
 
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-2">
-            <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo_fdr.svg') }}" width="160" height="67" class="img-fluid"></a>
-          </div>
-          <div class="col-lg-6">
-            <div class="footer-info">
-              <p class="fw-light">Plataforma voltada para levar assuntos relacionados a economia popular da forma que deve ser: simples, ágil e confiável.</p>
-              <a href="https://adseleto.com/?utm_source=fdr.com.br&amp;utm_medium=footer" rel="sponsored" target="_blank" class="me-0">Publicidade programática</a>
-              <span>powered by ✦ </span>
-              <a href="https://adseleto.com/?utm_source=fdr.com.br&amp;utm_medium=footer" rel="sponsored" target="_blank">AdSeleto</a>
-              <p class="my-4 fw-bold">FDR®, ECONOMIA SIMPLIFICADA</p>
-              <a href="https://fdr.com.br/sobre/">Sobre nós</a>
-              <a rel="privacy-policy" href="https://fdr.com.br/politica-de-privacidade/">Privacidade</a>
-              <a href="https://fdr.com.br/contato/">Contato</a>
-              <a href="https://fdr.com.br/esforcos-filantropicos-do-site-economico-fdr-gridmidia/">Esforços filantrópicos</a>
-              <a href="https://fdr.com.br/o-site-fdr-e-confiavel-e-seguro/">O site FDR é confiável?</a>
-              <a href="https://gridmidia.com/trabalhe-conosco/">Trabalhe Conosco</a>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="footer-disclaimer">
-              <p class="fst-italic fw-light">FDR® - Todos os textos são de propriedade intelectual deste site. Reprodução não permitida.</p>
-              <p class="fst-italic fw-light">FDR não realiza transações financeiras de nenhuma monta ou tipo. O site atua como veículo de informação, provendo conteúdo informativo e relevante para a população em geral, muitas vezes marginalizada pelos serviços bancários e grandes corporações. As informações aqui publicadas são idôneas e independentes.</p>
-            </div>
-          </div>
-        </div>
-      </div>      
-    </footer>
-    <div class="container">
-      <div class="footer-credits">
-        <p class="mb-0">FDR® é uma marca registrada, mantida e pertencente a Gridmidia</p>
-        <img src="{{ url_for('static', filename='images/logo_fabio_lobo.svg') }}" width="24" height="24" alt="logo Fábio Lobo">
-      </div>
-    </div>
+    {% include 'includes/footer.html' %}
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

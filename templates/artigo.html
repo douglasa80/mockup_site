@@ -8,11 +8,13 @@
 		  <span class="text-muted">{{ noticia.data }}</span>
 		</div>
 		<div class="col-lg-8 mx-auto">
-		  <img src="{{ url_for('static', filename=noticia.imagem) }}" alt="{{ noticia.titulo }}" class="img-fluid w-100">
+		  <img src="{{ url_for('static', filename='media/' + noticia.imagem) }}" alt="{{ noticia.titulo }}" class="img-fluid w-100">
 		  <p>{{ noticia.resumo }}</p>
 		  <p>{{ noticia.conteudo }}</p>
 		</div>
 	</div>
+
+	{% if 'usuario_id' in session %}
 	<div class="row">
 		<div class="col-12">
 		  <a href="{{ url_for('home') }}">Voltar para a lista de notícias</a>
@@ -24,6 +26,8 @@
 		  </div>
 		</div>
 	</div>
+	{% endif %}
+
 </div>
 
 {% endblock %}

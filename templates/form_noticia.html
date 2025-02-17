@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    <h2>{{ titulo }}</h2>
+    <div class="col-6">
+      <form method="POST" action="{{ action_url }}" enctype="multipart/form-data">
+        <input type="text" id="titulo" name="titulo" class="form-input" placeholder="Título" value="{{ noticia.titulo if noticia }}" required>
+        <textarea id="resumo" name="resumo" class="form-input" placeholder="Subtítulo" required>{{ noticia.resumo if noticia }}</textarea>
+        <div class="input-news-group">
+          <input type="date" id="data" name="data" class="form-input" placeholder="Data" value="{{ noticia.data if noticia }}" required>
+          <div class="">
+            <input type="file" id="imagem" name="imagem" accept="image/*" class="form-input mb-2" placeholder="Imagem Principal">
+            <small class="form-text text-muted">
+              {% if noticia and noticia.imagem %}
+                  Imagem atual: <a href="{{ url_for('static', filename='media/' + noticia.imagem) }}" target="_blank">{{ noticia.imagem }}</a>
+              {% else %}
+                  Selecione uma imagem para upload.
+              {% endif %}
+            </small>
+          </div>
+        </div>
+        <textarea id="conteudo" name="conteudo" class="form-input" placeholder="Conteúdo" required>{{ noticia.conteudo if noticia }}</textarea>
+        <button type="submit" class="form-button mb-5">{{ botao }}</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -95,5 +95,73 @@ footer {
   line-height: 1;
 }
 
+.btn-login-confirm {
+  background: linear-gradient(135deg, #0287a0, #1f4876);
+  border: 0;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
 
+input[placeholder] {
+  opacity: .7;
+  font-weight: 100;
+  font-size: .8rem;
+}
+
+.modern-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.form-input:focus {
+  border-color: #777;
+  box-shadow: 0;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.form-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #1f4876;
+  background-image: linear-gradient(135deg, #0287a0, #1f4876);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #2980b9;
+}
+
+.input-news-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.input-news-group .form-input {
+  flex: 1;
+  margin-bottom: 0;
+}
 

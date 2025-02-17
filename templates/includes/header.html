@@ -1,0 +1,52 @@
+<div class="placeholder_terra">
+  <img width="80" height="23" src="https://www.terra.com.br/globalSTATIC/fe/zaz-mod-t360-icons/svg/logos/terra-horizontal-branco.svg" alt="Logo do Terra">
+</div>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Offcanvas navbar large">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/logo_fdr.svg') }}" width="120" height="50" class="img-fluid"></a>
+      <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+            {% if 'usuario_id' in session %}
+              <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <img src="{{ url_for('static', filename='images/youtube_menu.svg') }}" width="22" height="22" class="px-1 mx-1">
+        <img src="{{ url_for('static', filename='images/whatsapp_menu.svg') }}" width="22" height="22" class="px-1 mx-1">
+        <img src="{{ url_for('static', filename='images/facebook_menu.svg') }}" width="22" height="22" class="px-1 mx-1">
+      </div>
+    </div>
+  </nav>      
+</header>

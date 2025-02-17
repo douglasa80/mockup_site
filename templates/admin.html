@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Painel de Administração{% endblock %}
+
+{% block content %}
+<div class="container admin-painel">
+  <div class="row">
+    <div class="col-12">
+      <h2>Painel de Administração</h2>
+      <a href="{{ url_for('adicionar_noticia') }}" class="bg-dark text-white p-3 d-inline-block mb-4">Adicionar Notícia</a>
+    </div>
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Data</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for noticia in noticias %}
+          <tr>
+            <td><a href="{{ url_for('editar_noticia', noticia_id=noticia.id) }}">{{ noticia.titulo }}</a></td>
+            <td>{{ noticia.data }}</td>
+            <td>
+              <a href="{{ url_for('editar_noticia', noticia_id=noticia.id) }}"><img src="{{ url_for('static', filename='images/icon-edit.svg') }}" width="20" height="20"></a>
+              <form action="{{ url_for('remover_noticia', noticia_id=noticia.id) }}" method="POST" style="display: inline;">
+                <button type="submit" class="border-0 bg-white"><img src="{{ url_for('static', filename='images/icon-remove.svg') }}" width="20" height="20"></button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
