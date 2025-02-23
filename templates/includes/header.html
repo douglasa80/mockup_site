@@ -16,9 +16,7 @@
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
-            </li>
+            {# 
             <li class="nav-item">
             {% if 'usuario_id' in session %}
               <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
@@ -26,19 +24,116 @@
               <a class="nav-link" href="{{ url_for('login') }}">Login</a>
             {% endif %}
             </li>
+             #}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">finanças</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li>
-                  <hr class="dropdown-divider">
+                  <a class="dropdown-item" href="#">cartões de crédito</a>
                 </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">contas digitais</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">empréstimos</a>
+                </li>
               </ul>
             </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">impostos</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#">ipva</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">iptu</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">irpf</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">irpj</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">direitos e benefícios</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#">bolsa família</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">inss</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">cnh social</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">seguro desemprego</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">sus</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">minha casa minha vida</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">renda</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#">fgts</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">pis pasep</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">renda extra</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">carreiras</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#">concursos</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">vagas de emprego</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">cursos</a>
+                </li>
+                <hr class="dropdown-divider">
+                <li>
+                  <a class="dropdown-item" href="#">vestibulares</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">mei</a>
+            </li>
+
           </ul>
         </div>
       </div>

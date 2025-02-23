@@ -11,7 +11,7 @@
         <input type="text" id="titulo" name="titulo" class="form-input" placeholder="Título" value="{{ noticia.titulo if noticia }}" required>
         <textarea id="resumo" name="resumo" class="form-input" placeholder="Subtítulo" required>{{ noticia.resumo if noticia }}</textarea>
         <div class="input-news-group">
-          <input type="date" id="data" name="data" class="form-input" placeholder="Data" value="{{ noticia.data if noticia }}" required>
+          <input type="date" id="data" name="data" class="form-input" placeholder="Data" value="{{ data_formatada }}" required>
           <div class="">
             <input type="file" id="imagem" name="imagem" accept="image/*" class="form-input mb-2" placeholder="Imagem Principal">
             <small class="form-text text-muted">

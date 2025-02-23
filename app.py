@@ -3,6 +3,7 @@ from models import db, Noticia, Usuario
 from werkzeug.security import check_password_hash
 from werkzeug.utils import secure_filename
 from functools import wraps
+from datetime import datetime
 import os
 
 app = Flask(__name__)
@@ -35,13 +36,15 @@ def login_required(f):
 @app.route('/admin')
 @login_required
 def admin():
-    noticias = Noticia.query.all()
+    # Ordena as notícias pela data de forma decrescente
+    noticias = Noticia.query.order_by(Noticia.data.desc()).all()
     return render_template('admin.html', noticias=noticias)
 
 # Rota da página inicial
 @app.route('/')
 def home():
-    noticias = Noticia.query.all()
+    # Ordena as notícias pela data de forma decrescente
+    noticias = Noticia.query.order_by(Noticia.data.desc()).all()
     return render_template('index.html', noticias=noticias)
 
 # Rota de login
@@ -70,15 +73,23 @@ def logout():
     return redirect(url_for('home'))
 
 # Rota para adicionar notícias (protegida)
+
 @app.route('/adicionar', methods=['GET', 'POST'])
 @login_required
 def adicionar_noticia():
     if request.method == 'POST':
         titulo = request.form['titulo']
-        data = request.form['data']
+        data_str = request.form['data']  # Recebe a data como string
         resumo = request.form['resumo']
         conteudo = request.form['conteudo']
-        imagem = request.files['imagem']  # Corrigido: use request.files para obter o arquivo
+        imagem = request.files['imagem']
+
+        # Converte a string da data para um objeto datetime
+        try:
+            data = datetime.strptime(data_str, '%Y-%m-%d')  # Converte 'YYYY-MM-DD' para datetime
+        except ValueError:
+            flash('Formato de data inválido. Use o formato YYYY-MM-DD.', 'danger')
+            return redirect(url_for('adicionar_noticia'))
 
         if imagem and allowed_file(imagem.filename):
             filename = secure_filename(imagem.filename)
@@ -87,10 +98,10 @@ def adicionar_noticia():
 
             nova_noticia = Noticia(
                 titulo=titulo,
-                data=data,
+                data=data,  # Agora é um objeto datetime
                 resumo=resumo,
                 conteudo=conteudo,
-                imagem=filename  # Corrigido: use o nome do arquivo, não o objeto de arquivo
+                imagem=filename
             )
 
             db.session.add(nova_noticia)
@@ -110,9 +121,15 @@ def editar_noticia(noticia_id):
 
     if request.method == 'POST':
         noticia.titulo = request.form['titulo']
-        noticia.data = request.form['data']
+        data_str = request.form['data']
         noticia.resumo = request.form['resumo']
         noticia.conteudo = request.form['conteudo']
+
+        try:
+            noticia.data = datetime.strptime(data_str, '%Y-%m-%d')  # Converte 'YYYY-MM-DD' para datetime
+        except ValueError:
+            flash('Formato de data inválido. Use o formato YYYY-MM-DD.', 'danger')
+            return redirect(url_for('editar_noticia', noticia_id=noticia.id))
 
         if 'imagem' in request.files:
             imagem = request.files['imagem']
@@ -131,7 +148,8 @@ def editar_noticia(noticia_id):
         flash('Notícia editada com sucesso!', 'success')
         return redirect(url_for('admin'))
 
-    return render_template('form_noticia.html', titulo='Editar Notícia', action_url=url_for('editar_noticia', noticia_id=noticia.id), noticia=noticia, botao='Salvar Alterações')
+    data_formatada = noticia.data.strftime('%Y-%m-%d') if noticia.data else ''
+    return render_template('form_noticia.html', titulo='Editar Notícia', noticia=noticia, data_formatada=data_formatada, botao='Salvar Alterações')
 
 # Rota para remover notícias (protegida)
 @app.route('/remover/<int:noticia_id>', methods=['POST'])

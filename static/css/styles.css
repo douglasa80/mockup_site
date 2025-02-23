@@ -102,6 +102,11 @@ footer {
   margin-bottom: 1.5rem;
 }
 
+.nav-link {
+  display: flex;
+  align-items: center;
+}
+
 input[placeholder] {
   opacity: .7;
   font-weight: 100;

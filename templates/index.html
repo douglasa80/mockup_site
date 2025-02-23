@@ -4,7 +4,6 @@
 {% block content %}
 <div class="container">
   <div class="row">
-
     {% for noticia in noticias[:1] %}
     <div class="col-12">
       <a href="{{ url_for('artigo', noticia_id=noticia.id) }}">
